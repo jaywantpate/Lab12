@@ -33,7 +33,14 @@ class Lab11ApplicationTests {
     void DoubletheNumberTest() throws Exception{
         int number = 100;
         this.mockmvc.perform(get("/double?number="+String.valueOf(number))).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString(String.valueOf(number*2))));
+                .andExpect(content().string(containsString("200")));
+    }
+
+    @Test
+    void toTestContinuous() throws Exception{
+        int number = 300;
+        this.mockmvc.perform(get("/double?number="+String.valueOf(number))).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("600")));
     }
 
 }
